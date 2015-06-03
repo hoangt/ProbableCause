@@ -1,0 +1,873 @@
+* -----/|-------------------------------------------------------------------- *
+*     / |__                                                                   *
+*    /_   /   MSP430 Flasher v1.3.0                                           *
+*      | /                                                                    *
+* -----|/-------------------------------------------------------------------- *
+* Evaluating triggers...done
+* Checking for available FET debuggers: 
+* Found USB FET @ COM19.
+* Initializing interface on TIUSB port...done
+* Checking firmware compatibility: 
+* FET firmware is up to date.
+* Reading FW version...done
+* Reading HW version...done
+* Setting VCC to 3000 mV...done
+* Accessing device...done
+* Reading device information...done
+* Erasing device memory...done
+* 
+/* ---------------------------------------------------------------------------
+* Arguments   : -n MSP430F2618 -e ERASE_ALL 
+* Warning: Default options used due to incomplete argument list.
+* ----------------------------------------------------------------------------
+* Driver      : loaded
+* Dll Version : 30400020
+* FwVersion   : 30400020
+* Interface   : TIUSB
+* HwVersion   : U 1.40
+* Mode        : AUTO
+* Device      : MSP430F2618
+* EEM         : Level 3, ClockCntrl 2
+* VCC ON      : 0 mV
+* ----------------------------------------------------------------------------
+* Powering down...done
+* Disconnecting from device...done
+* 
+* ----------------------------------------------------------------------------
+* Driver        : closed (EEM polling thread is already active)
+* ----------------------------------------------------------------------------
+*/
+* -----/|-------------------------------------------------------------------- *
+*     / |__                                                                   *
+*    /_   /   MSP430 Flasher v1.3.0                                           *
+*      | /                                                                    *
+* -----|/-------------------------------------------------------------------- *
+* Evaluating triggers...done
+* Checking for available FET debuggers: 
+* Found USB FET @ COM19.
+* Initializing interface on TIUSB port...done
+* Checking firmware compatibility: 
+* FET firmware is up to date.
+* Reading FW version...done
+* Reading HW version...done
+* Setting VCC to 3000 mV...done
+* Accessing device...done
+* Reading device information...done
+* Loading file into device...done
+* Verifying transfer...done
+* 
+/* ---------------------------------------------------------------------------
+* Arguments   : -n MSP430F2618 -w dram_bst90.txt -v -z [RESET,VCC] 
+* Warning: Default options used due to incomplete argument list.
+* ----------------------------------------------------------------------------
+* Driver      : loaded
+* Dll Version : 30400020
+* FwVersion   : 30400020
+* Interface   : TIUSB
+* HwVersion   : U 1.40
+* Mode        : AUTO
+* Device      : MSP430F2618
+* EEM         : Level 3, ClockCntrl 2
+* Prog.File   : dram_bst90.txt (ERASE_ALL, verified = TRUE)
+* BSL Unlock  : FALSE
+* InfoA Access: FALSE
+* VCC ON      : 3000 mV
+* ----------------------------------------------------------------------------
+* Resetting device (RST/NMI)...done
+* Starting target code execution...done
+* Disconnecting from device...done
+* 
+* ----------------------------------------------------------------------------
+* Driver        : closed (No error)
+* ----------------------------------------------------------------------------
+*/
+* -----/|-------------------------------------------------------------------- *
+*     / |__                                                                   *
+*    /_   /   MSP430 Flasher v1.3.0                                           *
+*      | /                                                                    *
+* -----|/-------------------------------------------------------------------- *
+* Evaluating triggers...done
+* Checking for available FET debuggers: 
+* Found USB FET @ COM19.
+* Initializing interface on TIUSB port...done
+* Checking firmware compatibility: 
+* FET firmware is up to date.
+* Reading FW version...done
+* Reading HW version...done
+* Setting VCC to 3000 mV...done
+* Accessing device...done
+* Reading device information...done
+* Dumping memory from MAIN into bst.txt...done
+* 
+/* ---------------------------------------------------------------------------
+* Arguments   : -n MSP430F2618 -r [bst.txt,MAIN] 
+* Warning: Default options used due to incomplete argument list.
+* ----------------------------------------------------------------------------
+* Driver      : loaded
+* Dll Version : 30400020
+* FwVersion   : 30400020
+* Interface   : TIUSB
+* HwVersion   : U 1.40
+* Mode        : AUTO
+* Device      : MSP430F2618
+* EEM         : Level 3, ClockCntrl 2
+* Read File   : bst.txt (memory segment = MAIN)
+* VCC ON      : 0 mV
+* ----------------------------------------------------------------------------
+* Powering down...done
+* Disconnecting from device...done
+* 
+* ----------------------------------------------------------------------------
+* Driver        : closed (EEM polling thread is already active)
+* ----------------------------------------------------------------------------
+*/
+* -----/|-------------------------------------------------------------------- *
+*     / |__                                                                   *
+*    /_   /   MSP430 Flasher v1.3.0                                           *
+*      | /                                                                    *
+* -----|/-------------------------------------------------------------------- *
+* Evaluating triggers...done
+* Checking for available FET debuggers: 
+* Found USB FET @ COM19.
+* Initializing interface on TIUSB port...done
+* Checking firmware compatibility: 
+* FET firmware is up to date.
+* Reading FW version...done
+* Reading HW version...done
+* Setting VCC to 3000 mV...done
+* Accessing device...done
+* Reading device information...done
+* Loading file into device...done
+* Verifying transfer...done
+* 
+/* ---------------------------------------------------------------------------
+* Arguments   : -n MSP430F2618 -w dram_fingerprint_bst.txt -v -z [RESET,VCC] 
+* Warning: Default options used due to incomplete argument list.
+* ----------------------------------------------------------------------------
+* Driver      : loaded
+* Dll Version : 30400020
+* FwVersion   : 30400020
+* Interface   : TIUSB
+* HwVersion   : U 1.40
+* Mode        : AUTO
+* Device      : MSP430F2618
+* EEM         : Level 3, ClockCntrl 2
+* Prog.File   : dram_fingerprint_bst.txt (ERASE_ALL, verified = TRUE)
+* BSL Unlock  : FALSE
+* InfoA Access: FALSE
+* VCC ON      : 3000 mV
+* ----------------------------------------------------------------------------
+* Resetting device (RST/NMI)...done
+* Starting target code execution...done
+* Disconnecting from device...done
+* 
+* ----------------------------------------------------------------------------
+* Driver        : closed (No error)
+* ----------------------------------------------------------------------------
+*/
+* -----/|-------------------------------------------------------------------- *
+*     / |__                                                                   *
+*    /_   /   MSP430 Flasher v1.3.0                                           *
+*      | /                                                                    *
+* -----|/-------------------------------------------------------------------- *
+* Evaluating triggers...done
+* Checking for available FET debuggers: 
+* Found USB FET @ COM19.
+* Initializing interface on TIUSB port...done
+* Checking firmware compatibility: 
+* FET firmware is up to date.
+* Reading FW version...done
+* Reading HW version...done
+* Setting VCC to 3000 mV...done
+* Accessing device...done
+* Reading device information...done
+* Dumping memory from MAIN into fingerprint.txt...done
+* 
+/* ---------------------------------------------------------------------------
+* Arguments   : -n MSP430F2618 -r [fingerprint.txt,MAIN] 
+* Warning: Default options used due to incomplete argument list.
+* ----------------------------------------------------------------------------
+* Driver      : loaded
+* Dll Version : 30400020
+* FwVersion   : 30400020
+* Interface   : TIUSB
+* HwVersion   : U 1.40
+* Mode        : AUTO
+* Device      : MSP430F2618
+* EEM         : Level 3, ClockCntrl 2
+* Read File   : fingerprint.txt (memory segment = MAIN)
+* VCC ON      : 0 mV
+* ----------------------------------------------------------------------------
+* Powering down...done
+* Disconnecting from device...done
+* 
+* ----------------------------------------------------------------------------
+* Driver        : closed (EEM polling thread is already active)
+* ----------------------------------------------------------------------------
+*/
+* -----/|-------------------------------------------------------------------- *
+*     / |__                                                                   *
+*    /_   /   MSP430 Flasher v1.3.0                                           *
+*      | /                                                                    *
+* -----|/-------------------------------------------------------------------- *
+* Evaluating triggers...done
+* Checking for available FET debuggers: 
+* Found USB FET @ COM19.
+* Initializing interface on TIUSB port...done
+* Checking firmware compatibility: 
+* FET firmware is up to date.
+* Reading FW version...done
+* Reading HW version...done
+* Setting VCC to 3000 mV...done
+* Accessing device...done
+* Reading device information...done
+* Loading file into device...done
+* Verifying transfer...done
+* 
+/* ---------------------------------------------------------------------------
+* Arguments   : -n MSP430F2618 -w dram_imgdecay_img.txt -v -z [RESET,VCC] 
+* Warning: Default options used due to incomplete argument list.
+* ----------------------------------------------------------------------------
+* Driver      : loaded
+* Dll Version : 30400020
+* FwVersion   : 30400020
+* Interface   : TIUSB
+* HwVersion   : U 1.40
+* Mode        : AUTO
+* Device      : MSP430F2618
+* EEM         : Level 3, ClockCntrl 2
+* Prog.File   : dram_imgdecay_img.txt (ERASE_ALL, verified = TRUE)
+* BSL Unlock  : FALSE
+* InfoA Access: FALSE
+* VCC ON      : 3000 mV
+* ----------------------------------------------------------------------------
+* Resetting device (RST/NMI)...done
+* Starting target code execution...done
+* Disconnecting from device...done
+* 
+* ----------------------------------------------------------------------------
+* Driver        : closed (No error)
+* ----------------------------------------------------------------------------
+*/
+* -----/|-------------------------------------------------------------------- *
+*     / |__                                                                   *
+*    /_   /   MSP430 Flasher v1.3.0                                           *
+*      | /                                                                    *
+* -----|/-------------------------------------------------------------------- *
+* Evaluating triggers...done
+* Checking for available FET debuggers: 
+* Found USB FET @ COM19.
+* Initializing interface on TIUSB port...done
+* Checking firmware compatibility: 
+* FET firmware is up to date.
+* Reading FW version...done
+* Reading HW version...done
+* Setting VCC to 3000 mV...done
+* Accessing device...done
+* Reading device information...done
+* Dumping memory from MAIN into imagedecay.txt...done
+* 
+/* ---------------------------------------------------------------------------
+* Arguments   : -n MSP430F2618 -r [imagedecay.txt,MAIN] 
+* Warning: Default options used due to incomplete argument list.
+* ----------------------------------------------------------------------------
+* Driver      : loaded
+* Dll Version : 30400020
+* FwVersion   : 30400020
+* Interface   : TIUSB
+* HwVersion   : U 1.40
+* Mode        : AUTO
+* Device      : MSP430F2618
+* EEM         : Level 3, ClockCntrl 2
+* Read File   : imagedecay.txt (memory segment = MAIN)
+* VCC ON      : 0 mV
+* ----------------------------------------------------------------------------
+* Powering down...done
+* Disconnecting from device...done
+* 
+* ----------------------------------------------------------------------------
+* Driver        : closed (EEM polling thread is already active)
+* ----------------------------------------------------------------------------
+*/
+* -----/|-------------------------------------------------------------------- *
+*     / |__                                                                   *
+*    /_   /   MSP430 Flasher v1.3.0                                           *
+*      | /                                                                    *
+* -----|/-------------------------------------------------------------------- *
+* Evaluating triggers...done
+* Checking for available FET debuggers: 
+* Found USB FET @ COM19.
+* Initializing interface on TIUSB port...done
+* Checking firmware compatibility: 
+* FET firmware is up to date.
+* Reading FW version...done
+* Reading HW version...done
+* Setting VCC to 3000 mV...done
+* Accessing device...done
+* Reading device information...done
+* Erasing device memory...done
+* 
+/* ---------------------------------------------------------------------------
+* Arguments   : -n MSP430F2618 -e ERASE_ALL 
+* Warning: Default options used due to incomplete argument list.
+* ----------------------------------------------------------------------------
+* Driver      : loaded
+* Dll Version : 30400020
+* FwVersion   : 30400020
+* Interface   : TIUSB
+* HwVersion   : U 1.40
+* Mode        : AUTO
+* Device      : MSP430F2618
+* EEM         : Level 3, ClockCntrl 2
+* VCC ON      : 0 mV
+* ----------------------------------------------------------------------------
+* Powering down...done
+* Disconnecting from device...done
+* 
+* ----------------------------------------------------------------------------
+* Driver        : closed (EEM polling thread is already active)
+* ----------------------------------------------------------------------------
+*/
+* -----/|-------------------------------------------------------------------- *
+*     / |__                                                                   *
+*    /_   /   MSP430 Flasher v1.3.0                                           *
+*      | /                                                                    *
+* -----|/-------------------------------------------------------------------- *
+* Evaluating triggers...done
+* Checking for available FET debuggers: 
+* Found USB FET @ COM19.
+* Initializing interface on TIUSB port...done
+* Checking firmware compatibility: 
+* FET firmware is up to date.
+* Reading FW version...done
+* Reading HW version...done
+* Setting VCC to 3000 mV...done
+* Accessing device...done
+* Reading device information...done
+* Loading file into device...done
+* Verifying transfer...done
+* 
+/* ---------------------------------------------------------------------------
+* Arguments   : -n MSP430F2618 -w dram_bst90.txt -v -z [RESET,VCC] 
+* Warning: Default options used due to incomplete argument list.
+* ----------------------------------------------------------------------------
+* Driver      : loaded
+* Dll Version : 30400020
+* FwVersion   : 30400020
+* Interface   : TIUSB
+* HwVersion   : U 1.40
+* Mode        : AUTO
+* Device      : MSP430F2618
+* EEM         : Level 3, ClockCntrl 2
+* Prog.File   : dram_bst90.txt (ERASE_ALL, verified = TRUE)
+* BSL Unlock  : FALSE
+* InfoA Access: FALSE
+* VCC ON      : 3000 mV
+* ----------------------------------------------------------------------------
+* Resetting device (RST/NMI)...done
+* Starting target code execution...done
+* Disconnecting from device...done
+* 
+* ----------------------------------------------------------------------------
+* Driver        : closed (No error)
+* ----------------------------------------------------------------------------
+*/
+* -----/|-------------------------------------------------------------------- *
+*     / |__                                                                   *
+*    /_   /   MSP430 Flasher v1.3.0                                           *
+*      | /                                                                    *
+* -----|/-------------------------------------------------------------------- *
+* Evaluating triggers...done
+* Checking for available FET debuggers: 
+* Found USB FET @ COM19.
+* Initializing interface on TIUSB port...done
+* Checking firmware compatibility: 
+* FET firmware is up to date.
+* Reading FW version...done
+* Reading HW version...done
+* Setting VCC to 3000 mV...done
+* Accessing device...done
+* Reading device information...done
+* Dumping memory from MAIN into bst.txt...done
+* 
+/* ---------------------------------------------------------------------------
+* Arguments   : -n MSP430F2618 -r [bst.txt,MAIN] 
+* Warning: Default options used due to incomplete argument list.
+* ----------------------------------------------------------------------------
+* Driver      : loaded
+* Dll Version : 30400020
+* FwVersion   : 30400020
+* Interface   : TIUSB
+* HwVersion   : U 1.40
+* Mode        : AUTO
+* Device      : MSP430F2618
+* EEM         : Level 3, ClockCntrl 2
+* Read File   : bst.txt (memory segment = MAIN)
+* VCC ON      : 0 mV
+* ----------------------------------------------------------------------------
+* Powering down...done
+* Disconnecting from device...done
+* 
+* ----------------------------------------------------------------------------
+* Driver        : closed (EEM polling thread is already active)
+* ----------------------------------------------------------------------------
+*/
+* -----/|-------------------------------------------------------------------- *
+*     / |__                                                                   *
+*    /_   /   MSP430 Flasher v1.3.0                                           *
+*      | /                                                                    *
+* -----|/-------------------------------------------------------------------- *
+* Evaluating triggers...done
+* Checking for available FET debuggers: 
+* Found USB FET @ COM19.
+* Initializing interface on TIUSB port...done
+* Checking firmware compatibility: 
+* FET firmware is up to date.
+* Reading FW version...done
+* Reading HW version...done
+* Setting VCC to 3000 mV...done
+* Accessing device...done
+* Reading device information...done
+* Loading file into device...done
+* Verifying transfer...done
+* 
+/* ---------------------------------------------------------------------------
+* Arguments   : -n MSP430F2618 -w dram_fingerprint_bst.txt -v -z [RESET,VCC] 
+* Warning: Default options used due to incomplete argument list.
+* ----------------------------------------------------------------------------
+* Driver      : loaded
+* Dll Version : 30400020
+* FwVersion   : 30400020
+* Interface   : TIUSB
+* HwVersion   : U 1.40
+* Mode        : AUTO
+* Device      : MSP430F2618
+* EEM         : Level 3, ClockCntrl 2
+* Prog.File   : dram_fingerprint_bst.txt (ERASE_ALL, verified = TRUE)
+* BSL Unlock  : FALSE
+* InfoA Access: FALSE
+* VCC ON      : 3000 mV
+* ----------------------------------------------------------------------------
+* Resetting device (RST/NMI)...done
+* Starting target code execution...done
+* Disconnecting from device...done
+* 
+* ----------------------------------------------------------------------------
+* Driver        : closed (No error)
+* ----------------------------------------------------------------------------
+*/
+* -----/|-------------------------------------------------------------------- *
+*     / |__                                                                   *
+*    /_   /   MSP430 Flasher v1.3.0                                           *
+*      | /                                                                    *
+* -----|/-------------------------------------------------------------------- *
+* Evaluating triggers...done
+* Checking for available FET debuggers: 
+* Found USB FET @ COM19.
+* Initializing interface on TIUSB port...done
+* Checking firmware compatibility: 
+* FET firmware is up to date.
+* Reading FW version...done
+* Reading HW version...done
+* Setting VCC to 3000 mV...done
+* Accessing device...done
+* Reading device information...done
+* Dumping memory from MAIN into fingerprint.txt...done
+* 
+/* ---------------------------------------------------------------------------
+* Arguments   : -n MSP430F2618 -r [fingerprint.txt,MAIN] 
+* Warning: Default options used due to incomplete argument list.
+* ----------------------------------------------------------------------------
+* Driver      : loaded
+* Dll Version : 30400020
+* FwVersion   : 30400020
+* Interface   : TIUSB
+* HwVersion   : U 1.40
+* Mode        : AUTO
+* Device      : MSP430F2618
+* EEM         : Level 3, ClockCntrl 2
+* Read File   : fingerprint.txt (memory segment = MAIN)
+* VCC ON      : 0 mV
+* ----------------------------------------------------------------------------
+* Powering down...done
+* Disconnecting from device...done
+* 
+* ----------------------------------------------------------------------------
+* Driver        : closed (EEM polling thread is already active)
+* ----------------------------------------------------------------------------
+*/
+* -----/|-------------------------------------------------------------------- *
+*     / |__                                                                   *
+*    /_   /   MSP430 Flasher v1.3.0                                           *
+*      | /                                                                    *
+* -----|/-------------------------------------------------------------------- *
+* Evaluating triggers...done
+* Checking for available FET debuggers: 
+* Found USB FET @ COM19.
+* Initializing interface on TIUSB port...done
+* Checking firmware compatibility: 
+* FET firmware is up to date.
+* Reading FW version...done
+* Reading HW version...done
+* Setting VCC to 3000 mV...done
+* Accessing device...done
+* Reading device information...done
+* Loading file into device...done
+* Verifying transfer...done
+* 
+/* ---------------------------------------------------------------------------
+* Arguments   : -n MSP430F2618 -w dram_imgdecay_img.txt -v -z [RESET,VCC] 
+* Warning: Default options used due to incomplete argument list.
+* ----------------------------------------------------------------------------
+* Driver      : loaded
+* Dll Version : 30400020
+* FwVersion   : 30400020
+* Interface   : TIUSB
+* HwVersion   : U 1.40
+* Mode        : AUTO
+* Device      : MSP430F2618
+* EEM         : Level 3, ClockCntrl 2
+* Prog.File   : dram_imgdecay_img.txt (ERASE_ALL, verified = TRUE)
+* BSL Unlock  : FALSE
+* InfoA Access: FALSE
+* VCC ON      : 3000 mV
+* ----------------------------------------------------------------------------
+* Resetting device (RST/NMI)...done
+* Starting target code execution...done
+* Disconnecting from device...done
+* 
+* ----------------------------------------------------------------------------
+* Driver        : closed (No error)
+* ----------------------------------------------------------------------------
+*/
+* -----/|-------------------------------------------------------------------- *
+*     / |__                                                                   *
+*    /_   /   MSP430 Flasher v1.3.0                                           *
+*      | /                                                                    *
+* -----|/-------------------------------------------------------------------- *
+* Evaluating triggers...done
+* Checking for available FET debuggers: 
+* Found USB FET @ COM19.
+* Initializing interface on TIUSB port...done
+* Checking firmware compatibility: 
+* FET firmware is up to date.
+* Reading FW version...done
+* Reading HW version...done
+* Setting VCC to 3000 mV...done
+* Accessing device...done
+* Reading device information...done
+* Dumping memory from MAIN into imagedecay.txt...done
+* 
+/* ---------------------------------------------------------------------------
+* Arguments   : -n MSP430F2618 -r [imagedecay.txt,MAIN] 
+* Warning: Default options used due to incomplete argument list.
+* ----------------------------------------------------------------------------
+* Driver      : loaded
+* Dll Version : 30400020
+* FwVersion   : 30400020
+* Interface   : TIUSB
+* HwVersion   : U 1.40
+* Mode        : AUTO
+* Device      : MSP430F2618
+* EEM         : Level 3, ClockCntrl 2
+* Read File   : imagedecay.txt (memory segment = MAIN)
+* VCC ON      : 0 mV
+* ----------------------------------------------------------------------------
+* Powering down...done
+* Disconnecting from device...done
+* 
+* ----------------------------------------------------------------------------
+* Driver        : closed (EEM polling thread is already active)
+* ----------------------------------------------------------------------------
+*/
+* -----/|-------------------------------------------------------------------- *
+*     / |__                                                                   *
+*    /_   /   MSP430 Flasher v1.3.0                                           *
+*      | /                                                                    *
+* -----|/-------------------------------------------------------------------- *
+* Evaluating triggers...done
+* Checking for available FET debuggers: 
+* Found USB FET @ COM19.
+* Initializing interface on TIUSB port...done
+* Checking firmware compatibility: 
+* FET firmware is up to date.
+* Reading FW version...done
+* Reading HW version...done
+* Setting VCC to 3000 mV...done
+* Accessing device...done
+* Reading device information...done
+* Erasing device memory...done
+* 
+/* ---------------------------------------------------------------------------
+* Arguments   : -n MSP430F2618 -e ERASE_ALL 
+* Warning: Default options used due to incomplete argument list.
+* ----------------------------------------------------------------------------
+* Driver      : loaded
+* Dll Version : 30400020
+* FwVersion   : 30400020
+* Interface   : TIUSB
+* HwVersion   : U 1.40
+* Mode        : AUTO
+* Device      : MSP430F2618
+* EEM         : Level 3, ClockCntrl 2
+* VCC ON      : 0 mV
+* ----------------------------------------------------------------------------
+* Powering down...done
+* Disconnecting from device...done
+* 
+* ----------------------------------------------------------------------------
+* Driver        : closed (EEM polling thread is already active)
+* ----------------------------------------------------------------------------
+*/
+* -----/|-------------------------------------------------------------------- *
+*     / |__                                                                   *
+*    /_   /   MSP430 Flasher v1.3.0                                           *
+*      | /                                                                    *
+* -----|/-------------------------------------------------------------------- *
+* Evaluating triggers...done
+* Checking for available FET debuggers: 
+* Found USB FET @ COM19.
+* Initializing interface on TIUSB port...done
+* Checking firmware compatibility: 
+* FET firmware is up to date.
+* Reading FW version...done
+* Reading HW version...done
+* Setting VCC to 3000 mV...done
+* Accessing device...done
+* Reading device information...done
+* Loading file into device...done
+* Verifying transfer...done
+* 
+/* ---------------------------------------------------------------------------
+* Arguments   : -n MSP430F2618 -w dram_bst90.txt -v -z [RESET,VCC] 
+* Warning: Default options used due to incomplete argument list.
+* ----------------------------------------------------------------------------
+* Driver      : loaded
+* Dll Version : 30400020
+* FwVersion   : 30400020
+* Interface   : TIUSB
+* HwVersion   : U 1.40
+* Mode        : AUTO
+* Device      : MSP430F2618
+* EEM         : Level 3, ClockCntrl 2
+* Prog.File   : dram_bst90.txt (ERASE_ALL, verified = TRUE)
+* BSL Unlock  : FALSE
+* InfoA Access: FALSE
+* VCC ON      : 3000 mV
+* ----------------------------------------------------------------------------
+* Resetting device (RST/NMI)...done
+* Starting target code execution...done
+* Disconnecting from device...done
+* 
+* ----------------------------------------------------------------------------
+* Driver        : closed (No error)
+* ----------------------------------------------------------------------------
+*/
+* -----/|-------------------------------------------------------------------- *
+*     / |__                                                                   *
+*    /_   /   MSP430 Flasher v1.3.0                                           *
+*      | /                                                                    *
+* -----|/-------------------------------------------------------------------- *
+* Evaluating triggers...done
+* Checking for available FET debuggers: 
+* Found USB FET @ COM19.
+* Initializing interface on TIUSB port...done
+* Checking firmware compatibility: 
+* FET firmware is up to date.
+* Reading FW version...done
+* Reading HW version...done
+* Setting VCC to 3000 mV...done
+* Accessing device...done
+* Reading device information...done
+* Dumping memory from MAIN into bst.txt...done
+* 
+/* ---------------------------------------------------------------------------
+* Arguments   : -n MSP430F2618 -r [bst.txt,MAIN] 
+* Warning: Default options used due to incomplete argument list.
+* ----------------------------------------------------------------------------
+* Driver      : loaded
+* Dll Version : 30400020
+* FwVersion   : 30400020
+* Interface   : TIUSB
+* HwVersion   : U 1.40
+* Mode        : AUTO
+* Device      : MSP430F2618
+* EEM         : Level 3, ClockCntrl 2
+* Read File   : bst.txt (memory segment = MAIN)
+* VCC ON      : 0 mV
+* ----------------------------------------------------------------------------
+* Powering down...done
+* Disconnecting from device...done
+* 
+* ----------------------------------------------------------------------------
+* Driver        : closed (EEM polling thread is already active)
+* ----------------------------------------------------------------------------
+*/
+* -----/|-------------------------------------------------------------------- *
+*     / |__                                                                   *
+*    /_   /   MSP430 Flasher v1.3.0                                           *
+*      | /                                                                    *
+* -----|/-------------------------------------------------------------------- *
+* Evaluating triggers...done
+* Checking for available FET debuggers: 
+* Found USB FET @ COM19.
+* Initializing interface on TIUSB port...done
+* Checking firmware compatibility: 
+* FET firmware is up to date.
+* Reading FW version...done
+* Reading HW version...done
+* Setting VCC to 3000 mV...done
+* Accessing device...done
+* Reading device information...done
+* Loading file into device...done
+* Verifying transfer...done
+* 
+/* ---------------------------------------------------------------------------
+* Arguments   : -n MSP430F2618 -w dram_fingerprint_bst.txt -v -z [RESET,VCC] 
+* Warning: Default options used due to incomplete argument list.
+* ----------------------------------------------------------------------------
+* Driver      : loaded
+* Dll Version : 30400020
+* FwVersion   : 30400020
+* Interface   : TIUSB
+* HwVersion   : U 1.40
+* Mode        : AUTO
+* Device      : MSP430F2618
+* EEM         : Level 3, ClockCntrl 2
+* Prog.File   : dram_fingerprint_bst.txt (ERASE_ALL, verified = TRUE)
+* BSL Unlock  : FALSE
+* InfoA Access: FALSE
+* VCC ON      : 3000 mV
+* ----------------------------------------------------------------------------
+* Resetting device (RST/NMI)...done
+* Starting target code execution...done
+* Disconnecting from device...done
+* 
+* ----------------------------------------------------------------------------
+* Driver        : closed (No error)
+* ----------------------------------------------------------------------------
+*/
+* -----/|-------------------------------------------------------------------- *
+*     / |__                                                                   *
+*    /_   /   MSP430 Flasher v1.3.0                                           *
+*      | /                                                                    *
+* -----|/-------------------------------------------------------------------- *
+* Evaluating triggers...done
+* Checking for available FET debuggers: 
+* Found USB FET @ COM19.
+* Initializing interface on TIUSB port...done
+* Checking firmware compatibility: 
+* FET firmware is up to date.
+* Reading FW version...done
+* Reading HW version...done
+* Setting VCC to 3000 mV...done
+* Accessing device...done
+* Reading device information...done
+* Dumping memory from MAIN into fingerprint.txt...done
+* 
+/* ---------------------------------------------------------------------------
+* Arguments   : -n MSP430F2618 -r [fingerprint.txt,MAIN] 
+* Warning: Default options used due to incomplete argument list.
+* ----------------------------------------------------------------------------
+* Driver      : loaded
+* Dll Version : 30400020
+* FwVersion   : 30400020
+* Interface   : TIUSB
+* HwVersion   : U 1.40
+* Mode        : AUTO
+* Device      : MSP430F2618
+* EEM         : Level 3, ClockCntrl 2
+* Read File   : fingerprint.txt (memory segment = MAIN)
+* VCC ON      : 0 mV
+* ----------------------------------------------------------------------------
+* Powering down...done
+* Disconnecting from device...done
+* 
+* ----------------------------------------------------------------------------
+* Driver        : closed (EEM polling thread is already active)
+* ----------------------------------------------------------------------------
+*/
+* -----/|-------------------------------------------------------------------- *
+*     / |__                                                                   *
+*    /_   /   MSP430 Flasher v1.3.0                                           *
+*      | /                                                                    *
+* -----|/-------------------------------------------------------------------- *
+* Evaluating triggers...done
+* Checking for available FET debuggers: 
+* Found USB FET @ COM19.
+* Initializing interface on TIUSB port...done
+* Checking firmware compatibility: 
+* FET firmware is up to date.
+* Reading FW version...done
+* Reading HW version...done
+* Setting VCC to 3000 mV...done
+* Accessing device...done
+* Reading device information...done
+* Loading file into device...done
+* Verifying transfer...done
+* 
+/* ---------------------------------------------------------------------------
+* Arguments   : -n MSP430F2618 -w dram_imgdecay_img.txt -v -z [RESET,VCC] 
+* Warning: Default options used due to incomplete argument list.
+* ----------------------------------------------------------------------------
+* Driver      : loaded
+* Dll Version : 30400020
+* FwVersion   : 30400020
+* Interface   : TIUSB
+* HwVersion   : U 1.40
+* Mode        : AUTO
+* Device      : MSP430F2618
+* EEM         : Level 3, ClockCntrl 2
+* Prog.File   : dram_imgdecay_img.txt (ERASE_ALL, verified = TRUE)
+* BSL Unlock  : FALSE
+* InfoA Access: FALSE
+* VCC ON      : 3000 mV
+* ----------------------------------------------------------------------------
+* Resetting device (RST/NMI)...done
+* Starting target code execution...done
+* Disconnecting from device...done
+* 
+* ----------------------------------------------------------------------------
+* Driver        : closed (No error)
+* ----------------------------------------------------------------------------
+*/
+* -----/|-------------------------------------------------------------------- *
+*     / |__                                                                   *
+*    /_   /   MSP430 Flasher v1.3.0                                           *
+*      | /                                                                    *
+* -----|/-------------------------------------------------------------------- *
+* Evaluating triggers...done
+* Checking for available FET debuggers: 
+* Found USB FET @ COM19.
+* Initializing interface on TIUSB port...done
+* Checking firmware compatibility: 
+* FET firmware is up to date.
+* Reading FW version...done
+* Reading HW version...done
+* Setting VCC to 3000 mV...done
+* Accessing device...done
+* Reading device information...done
+* Dumping memory from MAIN into imagedecay.txt...done
+* 
+/* ---------------------------------------------------------------------------
+* Arguments   : -n MSP430F2618 -r [imagedecay.txt,MAIN] 
+* Warning: Default options used due to incomplete argument list.
+* ----------------------------------------------------------------------------
+* Driver      : loaded
+* Dll Version : 30400020
+* FwVersion   : 30400020
+* Interface   : TIUSB
+* HwVersion   : U 1.40
+* Mode        : AUTO
+* Device      : MSP430F2618
+* EEM         : Level 3, ClockCntrl 2
+* Read File   : imagedecay.txt (memory segment = MAIN)
+* VCC ON      : 0 mV
+* ----------------------------------------------------------------------------
+* Powering down...done
+* Disconnecting from device...done
+* 
+* ----------------------------------------------------------------------------
+* Driver        : closed (EEM polling thread is already active)
+* ----------------------------------------------------------------------------
+*/
