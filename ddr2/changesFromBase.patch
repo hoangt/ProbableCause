@@ -1,0 +1,366 @@
+diff --git a/ddr2/cores/ddr2/ddr2_ctrl.v b/ddr2/cores/ddr2/ddr2_ctrl.v
+index 569c744..cbb4101 100644
+--- a/ddr2/cores/ddr2/ddr2_ctrl.v
++++ b/ddr2/cores/ddr2/ddr2_ctrl.v
+@@ -113,6 +113,7 @@ module ddr2_ctrl #
+    output                  ctrl_cas_n,
+    output                  ctrl_we_n,
+    output [CS_NUM-1:0]     ctrl_cs_n
++   , input sp_refresh_disable
+    );
+ 
+   // input address split into various ranges
+@@ -831,8 +830,8 @@ module ddr2_ctrl #
+ 
+   // auto refresh interval counter in refresh_clk domain
+   always @(posedge clk) begin
++    if ((rst_r1) || (refi_cnt_ok_r) || (sp_refresh_disable))  begin
+-    if ((rst_r1) || (refi_cnt_ok_r))  begin
+       refi_cnt_r <= 12'd0;
+     end else begin
+       refi_cnt_r <= refi_cnt_r + 1;
+     end
+diff --git a/ddr2/cores/ddr2/ddr2_mem_if_top.v b/ddr2/cores/ddr2/ddr2_mem_if_top.v
+index 64b0120..5bc78f7 100644
+--- a/ddr2/cores/ddr2/ddr2_mem_if_top.v
++++ b/ddr2/cores/ddr2/ddr2_mem_if_top.v
+@@ -167,6 +167,7 @@ module ddr2_mem_if_top #
+    output [DQS_WIDTH-1:0]                   dbg_calib_rd_data_sel,
+    output [(5*DQS_WIDTH)-1:0]               dbg_calib_rden_dly,
+    output [(5*DQS_WIDTH)-1:0]               dbg_calib_gate_dly
++   , input sp_refresh_disable
+    );
+ 
+   wire [30:0]                       af_addr;
+@@ -378,6 +377,7 @@ module ddr2_mem_if_top #
+        .ctrl_cas_n    (ctrl_cas_n),
+        .ctrl_we_n     (ctrl_we_n),
+        .ctrl_cs_n     (ctrl_cs_n)
++       , .sp_refresh_disable(sp_refresh_disable)
+        );
+ 
+ endmodule
+diff --git a/ddr2/cores/ddr2/ddr2_mig.v b/ddr2/cores/ddr2/ddr2_mig.v
+index cefeb33..5ed61b6 100644
+--- a/ddr2/cores/ddr2/ddr2_mig.v
++++ b/ddr2/cores/ddr2/ddr2_mig.v
+@@ -191,6 +191,7 @@ module ddr2_mig #
+    inout  [DQS_WIDTH-1:0]             ddr2_dqs_n,
+    output [CLK_WIDTH-1:0]             ddr2_ck,
+    output [CLK_WIDTH-1:0]             ddr2_ck_n
++   , input sp_refresh_disable
+    );
+ 
+   //***************************************************************************
+@@ -418,6 +417,7 @@ u_ddr2_top_0
+    .dbg_sel_all_idel_dqs   (dbg_sel_all_idel_dqs),
+    .dbg_sel_idel_gate      (dbg_sel_idel_gate),
+    .dbg_sel_all_idel_gate  (dbg_sel_all_idel_gate)
++   , .sp_refresh_disable(sp_refresh_disable)
+    );
+ 
+  
+diff --git a/ddr2/cores/ddr2/ddr2_top.v b/ddr2/cores/ddr2/ddr2_top.v
+index 5d9497c..50672e7 100644
+--- a/ddr2/cores/ddr2/ddr2_top.v
++++ b/ddr2/cores/ddr2/ddr2_top.v
+@@ -168,6 +168,7 @@ module ddr2_top #
+    output [DQS_WIDTH-1:0]                   dbg_calib_rd_data_sel,
+    output [(5*DQS_WIDTH)-1:0]               dbg_calib_rden_dly,
+    output [(5*DQS_WIDTH)-1:0]               dbg_calib_gate_dly
++   , input sp_refresh_disable
+    );
+ 
+   // memory initialization/control logic
+@@ -274,6 +273,7 @@ module ddr2_top #
+        .dbg_calib_rd_data_sel  (dbg_calib_rd_data_sel),
+        .dbg_calib_rden_dly     (dbg_calib_rden_dly),
+        .dbg_calib_gate_dly     (dbg_calib_gate_dly)
++       , .sp_refresh_disable(sp_refresh_disable)
+        );
+ 
+ endmodule
+diff --git a/ddr2/cores/ddr2/xilinx_ddr2.v b/ddr2/cores/ddr2/xilinx_ddr2.v
+index a0cd325..30b4729 100644
+--- a/ddr2/cores/ddr2/xilinx_ddr2.v
++++ b/ddr2/cores/ddr2/xilinx_ddr2.v
+@@ -81,6 +81,7 @@ module xilinx_ddr2
+     input 	  ddr2_if_clk,
+     input 	  clk200,
+     input 	  ddr2_if_rst
++   , input sp_refresh_disable    
+    );
+ 
+    // Internal wires to actual RAM
+@@ -207,8 +206,9 @@ module xilinx_ddr2
+       .idly_clk_200			(clk200),
+       .ddr2_if_rst                      (ddr2_if_rst),
+       .wb_clk				(wb_clk),
++      .wb_rst				(wb_rst),
++      .sp_refresh_disable(sp_refresh_disable)
+-      .wb_rst				(wb_rst)
+    );
+   
+ 
+ 
+diff --git a/ddr2/cores/ddr2/xilinx_ddr2_if.v b/ddr2/cores/ddr2/xilinx_ddr2_if.v
+index b60179d..baad7e0 100644
+--- a/ddr2/cores/ddr2/xilinx_ddr2_if.v
++++ b/ddr2/cores/ddr2/xilinx_ddr2_if.v
+@@ -129,6 +129,7 @@ module xilinx_ddr2_if (
+ 			  
+     input 	       wb_clk,
+     input 	       wb_rst
++    , input sp_refresh_disable
+ );
+    
+ `include "xilinx_ddr2_params.v"
+@@ -692,6 +691,7 @@ module xilinx_ddr2_if (
+      .app_wdf_data      (app_wdf_data),
+      .app_wdf_mask_data (app_wdf_mask_data),
+      .phy_init_done     (phy_init_done)
++     , .sp_refresh_disable(sp_refresh_disable)
+       );
+      
+ 
+diff --git a/ddr2/cores/or1200/or1200_cpu.v b/ddr2/cores/or1200/or1200_cpu.v
+index 0918bd0..2c67708 100644
+--- a/ddr2/cores/or1200/or1200_cpu.v
++++ b/ddr2/cores/or1200/or1200_cpu.v
+@@ -86,6 +86,7 @@ module or1200_cpu(
+ 	// SPR interface
+ 	supv, spr_addr, spr_dat_cpu, spr_dat_pic, spr_dat_tt, spr_dat_pm,
+ 	spr_dat_dmmu, spr_dat_immu, spr_dat_du, spr_cs, spr_we, mtspr_dc_done
++	, sp_refresh_disable
+ );
+ 
+ parameter dw = `OR1200_OPERAND_WIDTH;
+@@ -209,6 +208,7 @@ input				sig_int;
+ input				sig_tick;
+ 
+ 
++output 			        sp_refresh_disable;
+ 
+ //
+ // Internal wires
+@@ -539,6 +537,7 @@ or1200_ctrl or1200_ctrl(
+ 	.du_hwbkpt(du_hwbkpt),
+ 	.except_illegal(except_illegal),
+ 	.dc_no_writethrough(dc_no_writethrough)
++	, .sp_refresh_disable(sp_refresh_disable)
+ );
+ 
+ //
+diff --git a/ddr2/cores/or1200/or1200_ctrl.v b/ddr2/cores/or1200/or1200_ctrl.v
+index 133494e..825265d 100644
+--- a/ddr2/cores/or1200/or1200_ctrl.v
++++ b/ddr2/cores/or1200/or1200_ctrl.v
+@@ -71,6 +71,7 @@ module or1200_ctrl
+    force_dslot_fetch, no_more_dslot, id_void, ex_void, ex_spr_read, 
+    ex_spr_write, 
+    id_mac_op, id_macrc_op, ex_macrc_op, rfe, except_illegal, dc_no_writethrough
++   , sp_refresh_disable
+    );
+ 
+ //
+@@ -137,6 +136,7 @@ output					ex_macrc_op;
+ output					rfe;
+ output					except_illegal;
+ output  				dc_no_writethrough;
++output 				        sp_refresh_disable;
+ 				
+ 				
+ 				
+@@ -187,6 +185,7 @@ reg     [31:2]				ex_branch_addrtarget;
+ `ifdef OR1200_DC_NOSTACKWRITETHROUGH
+ reg 					dc_no_writethrough;
+ `endif
++reg 					sp_refresh_disable;
+    
+    
+ //
+@@ -265,7 +262,15 @@ always @(posedge clk or `OR1200_RST_EVENT rst) begin
+ 	end
+ end
+ 
++always @(posedge clk or `OR1200_RST_EVENT rst) begin
++   if(rst == `OR1200_RST_VALUE)
++     sp_refresh_disable <= 1'b0;
++   else if(id_insn == 32'h1500DEAD)
++     sp_refresh_disable <= 1'b1;
++   else if(id_insn == 32'h1500BEEF)
++     sp_refresh_disable <= 1'b0;
++end
+   
+ //
+ // ID Sign/Zero extension of immediate
+ //
+diff --git a/ddr2/cores/or1200/or1200_top.v b/ddr2/cores/or1200/or1200_top.v
+index 057c551..1ce225f 100644
+--- a/ddr2/cores/or1200/or1200_top.v
++++ b/ddr2/cores/or1200/or1200_top.v
+@@ -90,3 +90,3 @@ module or1200_top(
+ 	pm_clksd_o, pm_dc_gate_o, pm_ic_gate_o, pm_dmmu_gate_o, 
+ 	pm_immu_gate_o, pm_tt_gate_o, pm_cpu_gate_o, pm_wakeup_o, pm_lvolt_o
+ 
+,sig_tick		
++, sp_refresh_disable  
+ );
+ 
+ parameter dw = `OR1200_OPERAND_WIDTH;
+@@ -196,6 +194,7 @@ output			pm_tt_gate_o;
+ output			pm_cpu_gate_o;
+ output			pm_wakeup_o;
+ output			pm_lvolt_o;
++output 		        sp_refresh_disable;
+    
+ 
+ //
+@@ -713,6 +710,7 @@ or1200_cpu(
+ 	.spr_cs(spr_cs),
+ 	.spr_we(spr_we),
+         .mtspr_dc_done(mtspr_dc_done)
++	, .sp_refresh_disable(sp_refresh_disable)
+ );
+ 
+ //
+diff --git a/ddr2/cores/top/orpsoc_top.v b/ddr2/cores/top/orpsoc_top.v
+index 08c4f3d..a4d04f5 100644
+--- a/ddr2/cores/top/orpsoc_top.v
++++ b/ddr2/cores/top/orpsoc_top.v
+@@ -937,6 +937,7 @@ module orpsoc_top
+    //
+    assign or1200_clk = wb_clk;
+    assign or1200_rst = wb_rst | or1200_dbg_rst;
++   wire      sp_refresh_disable;
+    
+    // 
+    // Instantiation
+@@ -1019,6 +1018,7 @@ module orpsoc_top
+ 	 */
+ 
+ 	.pm_cpustall_i			(1'b0)
++	, .sp_refresh_disable(sp_refresh_disable)
+ 	);
+    
+    ////////////////////////////////////////////////////////////////////////
+@@ -1091,6 +1089,7 @@ module orpsoc_top
+       .ddr2_if_clk                      (ddr2_if_clk),
+       .clk200      		        (clk200),
+       .ddr2_if_rst                      (ddr2_if_rst)
++      , .sp_refresh_disable(sp_refresh_disable)
+       );
+    
+ `endif
+diff --git a/ddr2/cores/ddr2/xilinx_ddr2_params.v b/ddr2/cores/ddr2/xilinx_ddr2_params.v
+index d7e88dd..2baa48e 100644
+--- a/ddr2/cores/ddr2/xilinx_ddr2_params.v
++++ b/ddr2/cores/ddr2/xilinx_ddr2_params.v
+@@ -48,6 +48,6 @@ parameter APPDATA_WIDTH         = 128;     // # of usr read/write data bus bits
+    parameter DEBUG_EN              = 0;      // Enable debug signals/controls
+    parameter RST_ACT_LOW           = 0;      // =1 for active low reset, =0 for active high
+    parameter DLL_FREQ_MODE         = "HIGH"; // DCM Frequency range
+-parameter CLK_PERIOD            = 3750;   // 266MHz Core/Mem clk period (in ps)
+-//   parameter CLK_PERIOD            = 5000;   // 200MHz Core/Mem clk period (in ps)
++//parameter CLK_PERIOD            = 3750;   // 266MHz Core/Mem clk period (in ps)
++   parameter CLK_PERIOD            = 5000;   // 200MHz Core/Mem clk period (in ps)
+ 
+diff --git a/ddr2/cores/or1200/or1200_spram.v b/ddr2/cores/or1200/or1200_spram.v
+index ecf0082..f6f8e11 100644
+--- a/ddr2/cores/or1200/or1200_spram.v
++++ b/ddr2/cores/or1200/or1200_spram.v
+@@ -117,13 +117,15 @@ module or1200_spram
+    //assign doq = (oe) ? mem[addr_reg] : {dw{1'b0}};
+    assign doq = mem[addr_reg];
+ 
++// synthesis translate_off
+    integer k;
+    initial begin 
+       for(k = 0; k < (1 << aw); k = k + 1) begin
+          mem[k] = 0;
+       end
+    end
+-   
++// synthesis translate_on
++
+    //
+    // RAM read address register
+    //
+diff --git a/ddr2/cores/or1200/or1200_defines.v b/ddr2/cores/or1200/or1200_defines.v
+index 88b431c..97ecf17 100644
+--- a/ddr2/cores/or1200/or1200_defines.v
++++ b/ddr2/cores/or1200/or1200_defines.v
+@@ -136,7 +136,7 @@
+ //
+ // Do not implement Insn cache
+ //
+-`define OR1200_NO_IC
++//`define OR1200_NO_IC
+ 
+ //
+ // Do not implement Data MMU
+diff --git a/ddr2/backend/ml509.ucf b/ddr2/backend/ml509.ucf
+index ed9cf20..d706055 100644
+--- a/ddr2/backend/ml509.ucf
++++ b/ddr2/backend/ml509.ucf
+@@ -9,6 +9,9 @@ NET  rst_n_pad_i	LOC="E9" | PULLUP | IOSTANDARD=LVDCI_33 | TIG;    # Bank 20, Vc
+ NET  uart0_srx_pad_i	LOC="AG15" | IOSTANDARD=LVCMOS33;  # Bank 4, Vcco=3.3V, No DCI
+ NET  uart0_stx_pad_o	LOC="AG20" | IOSTANDARD=LVCMOS33;  # Bank 4, Vcco=3.3V, No DCI
+ 
++NET GPIO_LED_0 LOC="H18";
++NET GPIO_LED_1 LOC="L18";
++
+ ## #------------------------------------------------------------------------------
+ ## # IO Pad Location Constraints / Properties for Ethernet
+ ## #------------------------------------------------------------------------------
+diff --git a/ddr2/cores/top/orpsoc_top.v b/ddr2/cores/top/orpsoc_top.v
+index 08c4f3d..3e5760b 100644
+--- a/ddr2/cores/top/orpsoc_top.v
++++ b/ddr2/cores/top/orpsoc_top.v
+@@ -37,6 +37,7 @@
+ `include "synthesis-defines.v"
+ module orpsoc_top
+   ( 
++    GPIO_LED_0, GPIO_LED_1,
+ `ifdef JTAG_DEBUG   
+     tdo_pad_o, tms_pad_i, tck_pad_i, tdi_pad_i, jtag_gnd, jtag_vdd,
+ `elsif ADV_DEBUG   
+@@ -91,6 +92,8 @@ module orpsoc_top
+    
+    input rst_n_pad_i;
+    
++   output GPIO_LED_0;
++   output GPIO_LED_1;
+ `ifdef JTAG_DEBUG    
+    output tdo_pad_o;
+    input  tms_pad_i;
+@@ -1025,6 +1028,9 @@ module orpsoc_top
+    ////////////////////////////////////////////////////////////////////////
+    
+ `ifdef XILINX_DDR2
++
++wire [2:0] ba_from_ctrl;
++
+    ////////////////////////////////////////////////////////////////////////
+    //
+    // Xilinx MIG DDR2 controller, Wishbone interface
+@@ -1075,7 +1081,7 @@ module orpsoc_top
+       .wb_rst                           (wb_rst),
+       
+       .ddr2_a  				(ddr2_a[12:0]),
+-      .ddr2_ba				(ddr2_ba[1:0]),
++      .ddr2_ba				(ba_from_ctrl),
+       .ddr2_ras_n			(ddr2_ras_n),
+       .ddr2_cas_n			(ddr2_cas_n),
+       .ddr2_we_n			(ddr2_we_n),
+@@ -1093,6 +1099,10 @@ module orpsoc_top
+       .ddr2_if_rst                      (ddr2_if_rst)
+       , .sp_refresh_disable(sp_refresh_disable)
+       );
++
++      assign ddr2_ba = 2'b0;
++      assign GPIO_LED_0 = ba_from_ctrl[0];
++      assign GPIO_LED_1 = ba_from_ctrl[1];
+    
+ `endif
+ 
